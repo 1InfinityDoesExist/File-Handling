@@ -1,14 +1,17 @@
 package in.csv.csvManipulate.serviceImpl;
 
 import java.io.File;
+import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.util.Iterator;
 import java.util.Map;
 import java.util.Set;
 import java.util.TreeMap;
 
 import org.apache.poi.ss.usermodel.Cell;
+import org.apache.poi.ss.usermodel.CellType;
 import org.apache.poi.ss.usermodel.Row;
 import org.apache.poi.xssf.usermodel.XSSFSheet;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
@@ -17,7 +20,7 @@ import org.springframework.stereotype.Component;
 @Component
 public class ProcessCSVFile {
 
-	public static void readFromCSVFile() {
+	public static void writeIntoCSVFile() {
 		@SuppressWarnings("resource")
 		XSSFWorkbook workBook = new XSSFWorkbook();
 		XSSFSheet sheet = workBook.createSheet("Shinchan Details");
@@ -56,4 +59,32 @@ public class ProcessCSVFile {
 		}
 	}
 
+	public static void readFromCSVFile() {
+		try {
+			FileInputStream fis = new FileInputStream(
+					new File("/home/gaian/Videos/fbAccessTokenVeification/csvManipulate/Sinchan.xlsx"));
+			XSSFWorkbook workBook = new XSSFWorkbook(fis);
+			XSSFSheet sheet = workBook.getSheetAt(0);
+			Iterator<Row> rowIterator = sheet.iterator();
+			while (rowIterator.hasNext()) {
+				Row row = rowIterator.next();
+				Iterator<Cell> cellIterator = row.iterator();
+				while (cellIterator.hasNext()) {
+					Cell cell = cellIterator.next();
+					if (cell.getCellType() == CellType.STRING) {
+						System.out.print("::::::" + cell.getStringCellValue());
+					}
+					if (cell.getCellType() == CellType.NUMERIC) {
+						System.out.print("::::::" + cell.getNumericCellValue());
+					}
+				}
+				System.out.println("");
+			}
+			fis.close();
+		} catch (FileNotFoundException e) {
+			e.printStackTrace();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+	}
 }

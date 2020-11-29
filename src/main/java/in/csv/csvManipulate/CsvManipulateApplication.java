@@ -15,6 +15,7 @@ public class CsvManipulateApplication {
 	public static void main(String[] args) {
 		SpringApplication.run(CsvManipulateApplication.class, args);
 
+		ProcessCSVFile.writeIntoCSVFile();
 		ProcessCSVFile.readFromCSVFile();
 	}
 
