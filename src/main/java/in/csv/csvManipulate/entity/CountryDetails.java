@@ -2,9 +2,11 @@ package in.csv.csvManipulate.entity;
 
 import java.util.List;
 import java.util.Map;
-import javax.persistence.Id;
+import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
+
 import com.fasterxml.jackson.annotation.JsonInclude;
+
 import in.csv.csvManipulate.model.Currency;
 import in.csv.csvManipulate.model.Language;
 import in.csv.csvManipulate.model.RegionalBloc;
