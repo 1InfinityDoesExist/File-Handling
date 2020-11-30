@@ -22,7 +22,7 @@ public class CountryDetailsProducer {
 	public ListenableFuture<SendResult<String, Object>> produce(String topic, String msg) {
 		log.info(":::::Sending file from kafka producer::::");
 		ListenableFuture<SendResult<String, Object>> listenableFuture = kafkaTemplate.send(topic, msg);
-		log.info("::::Producer send the message to topic :  {}", topic);
+		log.info("::::Producer send the message to topic :  {}, and message {}", topic, msg);
 		return listenableFuture;
 	}
 }

@@ -27,7 +27,7 @@ public class CountryDetailsResponseBuilder {
 	private Long area;
 	private Double gini;
 	private List<String> timezones;
-	private List<String> boarders;
+	private List<String> borders;
 	private String nativeName;
 	private String numericCode;
 	private List<Currency> currencies;
@@ -118,8 +118,8 @@ public class CountryDetailsResponseBuilder {
 		return this;
 	}
 
-	public CountryDetailsResponseBuilder setBoarders(List<String> boarders) {
-		this.boarders = boarders;
+	public CountryDetailsResponseBuilder setBoarders(List<String> borders) {
+		this.borders = borders;
 		return this;
 	}
 
@@ -165,7 +165,7 @@ public class CountryDetailsResponseBuilder {
 
 	public CountryDetailsResponse getCountryDetails() {
 		return new CountryDetailsResponse(id, name, topLevelDomain, alpha2Code, alpha3Code, callingCodes, capital,
-				altSpellings, region, subregion, population, latlng, demonym, area, gini, timezones, boarders,
+				altSpellings, region, subregion, population, latlng, demonym, area, gini, timezones, borders,
 				nativeName, numericCode, currencies, languages, translations, flag, cioc, regionalBlocs);
 	}
 
