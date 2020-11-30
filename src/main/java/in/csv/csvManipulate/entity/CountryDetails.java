@@ -32,7 +32,7 @@ public class CountryDetails {
 	private Long area;
 	private Double gini;
 	private List<String> timezones;
-	private List<String> boarders;
+	private List<String> borders;
 	private String nativeName;
 	private String numericCode;
 	private List<Currency> currencies;
