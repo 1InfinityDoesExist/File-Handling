@@ -1,14 +1,13 @@
 package in.csv.csvManipulate;
 
-import java.util.Map;
-
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration;
+import org.springframework.boot.autoconfigure.jdbc.XADataSourceAutoConfiguration;
 
-import in.csv.csvManipulate.serviceImpl.OpenStreetMapUtils;
 import in.csv.csvManipulate.serviceImpl.ProcessCSVFile;
 
-@SpringBootApplication
+@SpringBootApplication(exclude = { DataSourceAutoConfiguration.class, XADataSourceAutoConfiguration.class })
 public class CsvManipulateApplication {
 
 	/*
@@ -20,7 +19,7 @@ public class CsvManipulateApplication {
 
 		ProcessCSVFile.writeIntoCSVFile();
 		ProcessCSVFile.readFromCSVFile();
-		
+
 	}
 
 }
